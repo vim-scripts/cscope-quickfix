@@ -1,0 +1,61 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=862
+
+Overview
+-------------
+This script enables to use cscope with quickfix.
+
+Preparation
+-----------------
+You must prepare cscope and cscope database (cscope.out file).
+cscope is a tag tool like ctags, but unlike ctags, it is a cross referencing tool.
+If you don't know about cscope see:
+:help cscope
+http://cscope.sourceforge.net/
+http://iamphet.nm.ru/cscope/ (Win32)
+
+Feature 1
+--------------
+This script adds a command ":Cscope", which is very similar to ":cscope find" command. But, this ":Cscope" command can be used with quickfix, and isn't needed cscope connection. So, you don't have to install vim with --enable-cscope.
+
+Feature 2
+--------------
+This script adds keymap macro as follows:
+<C-\> s: Find this C symbol
+<C-\> g: Find this definition
+<C-\> d: Find functions called by this function
+<C-\> c: Find functions calling this function
+<C-\> t: Find this text string
+<C-\> e: Find this egrep pattern
+<C-\> f: Find this file
+<C-\> i: Find files #including this file
+"this" means <cword> or <cfile> on the cursor.
+
+Feature 3
+--------------
+This script adds Tools and Popup menu as follows:
+"Symbols": Find this C symbol
+"Defines": Find this definition
+"Calls": Find functions called by this function
+"Globals": Find functions calling this function
+"Texts": Find this text string
+"Egrep": Find this egrep pattern
+"File": Find this file
+"Includes": Find files #including this file
+"Update cscope.out"
+
+Function
+--------------
+RunCscope({type}, {pattern} [,{file}])
+
+Command
+---------------
+Cscope {type} {pattern} [{file}]
+
+Variables
+--------------
+0: disable, 1: enable
+g:Cscope_OpenQuickfixWindow (default: 1)
+g:Cscope_JumpError (default: 1)
+g:Cscope_Keymap (default: 1)
+g:Cscope_PopupMenu (default: 0)
+g:Cscope_ToolMenu (default: 1)
